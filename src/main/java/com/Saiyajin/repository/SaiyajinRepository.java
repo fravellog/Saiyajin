@@ -1,9 +1,9 @@
-package com.Saiyajin.Saiyajin.Repository;
+package com.Saiyajin.repository;
 
 
 import org.springframework.stereotype.Repository;
 
-import com.Saiyajin.Saiyajin.Model.Saiyajin;
+import com.Saiyajin.model.Saiyajin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class SaiyajinRepository {
     private List<Saiyajin> ListSaiyajin = new ArrayList<>();
 
     public SaiyajinRepository() {
-        ListSaiyajin.add(new Saiyajin(1, "Goku"));
+        ListSaiyajin.add(new Saiyajin(1, "Goku", true, "humano", 1 ));
     }
     public List<Saiyajin> obtenerSaiyajin() {
         return ListSaiyajin;
