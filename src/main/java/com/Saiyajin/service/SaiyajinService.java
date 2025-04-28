@@ -13,11 +13,11 @@ public class SaiyajinService {
     @Autowired
     private SaiyajinRepository saiyajinRepository;
 
-     public List<Saiyajin> obtenerSaiyajin() {
+    public List<Saiyajin> obtenerSaiyajin() {
         return saiyajinRepository.obtenerSaiyajin();
     }
 
-     public Saiyajin guardar(Saiyajin saiyajin) {
+    public Saiyajin guardar(Saiyajin saiyajin) {
         saiyajinRepository.guardar(saiyajin);
     }
 

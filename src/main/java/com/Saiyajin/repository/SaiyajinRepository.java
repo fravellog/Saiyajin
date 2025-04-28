@@ -10,18 +10,18 @@ import java.util.List;
 @Repository 
 public class SaiyajinRepository {
 
-    private List<Saiyajin> ListSaiyajin = new ArrayList<>();
+    private List<Saiyajin> ListaSaiyajin = new ArrayList<>();
 
     public SaiyajinRepository() {
-        ListSaiyajin.add(new Saiyajin(1, "Goku", true, "humano", 1 ));
+        ListaSaiyajin.add(new Saiyajin(1, "Goku", true, "humano", 1 ));
     }
 
     public List<Saiyajin> obtenerSaiyajin() {
-        return ListSaiyajin;
+        return ListaSaiyajin;
     }
 
     public Saiyajin Buscarporid(int id) {
-        for (Saiyajin saiyajin: ListSaiyajin){
+        for (Saiyajin saiyajin: ListaSaiyajin){
             if (saiyajin.getId() == id ){
                 return saiyajin;
             }
@@ -30,10 +30,7 @@ public class SaiyajinRepository {
     }
 
     public Saiyajin guardar(Saiyajin saiyajin){
-        Saiyajin saiyajin1 = new Saiyajin();
-        saiyajin.setId(saiyajin.getId());
-        saiyajin.setNombre(saiyajin.getNombre());
-        ListSaiyajin.add(saiyajin);
+        ListaSaiyajin.add(saiyajin);
         return saiyajin;
     }
 
@@ -41,8 +38,8 @@ public class SaiyajinRepository {
         int id = 0;
         int idPosicion = 0;
 
-        for (int i = 0; i < ListSaiyajin.size(); i++){
-            if (ListSaiyajin.get(i).getId() == saiyajin.getId()){
+        for (int i = 0; i < ListaSaiyajin.size(); i++){
+            if (ListaSaiyajin.get(i).getId() == saiyajin.getId()){
                 id = saiyajin.getId();
                 idPosicion = i; 
             }
@@ -52,19 +49,19 @@ public class SaiyajinRepository {
             Saiyajin1.setId(id);
             Saiyajin1.setNombre(saiyajin.getNombre());
 
-            ListSaiyajin.set(idPosicion, Saiyajin1);
+            ListaSaiyajin.set(idPosicion, Saiyajin1);
             return Saiyajin1;
     }
     public void eliminar(int id){
 
        Saiyajin saiyan = Buscarporid(id);
        if (saiyan != null) {
-        ListSaiyajin.remove(saiyan);
+        ListaSaiyajin.remove(saiyan);
        } 
-       ListSaiyajin.removeIf(x -> x.getId() == id);
+       ListaSaiyajin.removeIf(x -> x.getId() == id);
     }
     public int totalSaiyan(){
-        return ListSaiyajin.size();
+        return ListaSaiyajin.size();
     }
 
 
