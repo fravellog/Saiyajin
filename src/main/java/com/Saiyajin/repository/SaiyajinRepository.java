@@ -2,15 +2,12 @@ package com.Saiyajin.repository;
 
 
 import org.springframework.stereotype.Repository;
-
 import com.Saiyajin.model.Saiyajin;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository 
-
-
 public class SaiyajinRepository {
 
     private List<Saiyajin> ListSaiyajin = new ArrayList<>();
@@ -18,9 +15,11 @@ public class SaiyajinRepository {
     public SaiyajinRepository() {
         ListSaiyajin.add(new Saiyajin(1, "Goku", true, "humano", 1 ));
     }
+
     public List<Saiyajin> obtenerSaiyajin() {
         return ListSaiyajin;
     }
+
     public Saiyajin Buscarporid(int id) {
         for (Saiyajin saiyajin: ListSaiyajin){
             if (saiyajin.getId() == id ){
@@ -30,33 +29,28 @@ public class SaiyajinRepository {
         return null;
     }
 
-    public Saiyajin guardar(Saiyajin saiyan){
-        Saiyajin saiyajin = new Saiyajin();
-        saiyajin.setId(saiyan.getId());
-        saiyajin.setNombre(saiyan.getNombre());
-
-        
-
-
-        ListSaiyajin.add(saiyan);
-        return saiyan;
+    public Saiyajin guardar(Saiyajin saiyajin){
+        Saiyajin saiyajin1 = new Saiyajin();
+        saiyajin.setId(saiyajin.getId());
+        saiyajin.setNombre(saiyajin.getNombre());
+        ListSaiyajin.add(saiyajin);
+        return saiyajin;
     }
 
-    public Saiyajin actualizar(Saiyajin saiyan) {
+    public Saiyajin actualizar(Saiyajin saiyajin) {
         int id = 0;
         int idPosicion = 0;
 
         for (int i = 0; i < ListSaiyajin.size(); i++){
-            if (ListSaiyajin.get(i).getId() == saiyan.getId()){
-                id = saiyan.getId();
+            if (ListSaiyajin.get(i).getId() == saiyajin.getId()){
+                id = saiyajin.getId();
                 idPosicion = i; 
-
             }
 
         }
             Saiyajin Saiyajin1 = new Saiyajin();
             Saiyajin1.setId(id);
-            Saiyajin1.setNombre(saiyan.getNombre());
+            Saiyajin1.setNombre(saiyajin.getNombre());
 
             ListSaiyajin.set(idPosicion, Saiyajin1);
             return Saiyajin1;
