@@ -20,7 +20,7 @@ public class SaiyajinController {
 
     @GetMapping
     public List<Saiyajin> listaSaiyajins(){
-        return saiyajinService.getSaiyajin();
+        return saiyajinService.getSaiyajins(); /* Corregi algo super pequeño aqui antes salia "getSaiyajin" */
     }
 
     @PostMapping

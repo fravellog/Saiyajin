@@ -10,25 +10,34 @@ import java.util.List;
 
 @Service
 public class SaiyajinService {
+    
     @Autowired
     private SaiyajinRepository saiyajinRepository;
 
-    public List<Saiyajin> obtenerSaiyajin() {
-        return saiyajinRepository.obtenerSaiyajin();
+    /* Nos devuelve la lista completa de Saiyajins */
+    public List<Saiyajin> getSaiyajins() { /* Cambie lo de "ObtenerSaiyajin" por "getSaiyajins" */
+        return saiyajinRepository.obtenerSaiyajins();
     }
 
-    public Saiyajin guardar(Saiyajin saiyajin) {
-        saiyajinRepository.guardar(saiyajin);
+    /* Guarda un nuevo Saiyajin en la lista */
+    public Saiyajin saveSaiyajin(Saiyajin saiyajin) { /* Cambie lo de "guardarSaiyajin" por "saveSaiyajin" */
+        return saiyajinRepository.guardar(saiyajin);
     }
 
-    public Saiyajin getSaiyajinId(int id) {
-        return saiyajinRepository.buscarPorId(id);
+    /* Busca un Saiyajin por su ID */
+    public Saiyajin getSaiyajin(int id) { /* Cambie lo de "getSaiyajinId" por "getSaiyajin" */
+        return saiyajinRepository.buscarPorId(id); 
     }
-    public Saiyajin updateSaiyajin(Saiyajin saiyajin) {
+
+    /* Actualiza un Saiyajin existente usando su ID */
+    public Saiyajin updateSaiyajin(int id, Saiyajin saiyajin) { /* Aqui no cambie nada, ya que estaba bien" */
+        saiyajin.setId(id); /* Agrege esto de para que se asegure de que los datos se asocien al ID correcto*/
         return saiyajinRepository.actualizar(saiyajin);
-    }
-    public void deleteSaiyajin(int id) {
+    }    
+    
+    /* Elimina un Saiyajin por su ID y devuelve un mensaje */
+    public String deleteSaiyajin(int id) { /* Aqui no cambie nada, ya que estaba bien" */
         saiyajinRepository.eliminar(id);
-        return "saiyajin eliminado";
+        return "Saiyajin eliminado";
     }
 }

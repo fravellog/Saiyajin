@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Saiyajin {
     private int id;
     private String nombre;
-    private Boolean bando;
+    private String bando; /* Cambie lo de Boolean a String para decir si es "Malo" o "Bueno" */
     private String raza;
     private int nivel;
 }

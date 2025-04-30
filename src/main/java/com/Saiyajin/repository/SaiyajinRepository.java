@@ -1,68 +1,63 @@
 package com.Saiyajin.repository;
 
-
-import org.springframework.stereotype.Repository;
-import com.Saiyajin.model.Saiyajin;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository 
+import org.springframework.stereotype.Repository;
+
+import com.Saiyajin.model.Saiyajin;
+
+@Repository
 public class SaiyajinRepository {
 
-    private List<Saiyajin> ListaSaiyajin = new ArrayList<>();
+    private List<Saiyajin> listaSaiyajins = new ArrayList<>();
 
-    public SaiyajinRepository() {
-        ListaSaiyajin.add(new Saiyajin(1, "Goku", true, "humano", 1 ));
+    public SaiyajinRepository() { /* Agrege mas Saiyajins */
+        listaSaiyajins.add(new Saiyajin(1, "Goku", "Bueno", "Saiyajin", 9000));
+        listaSaiyajins.add(new Saiyajin(2, "Vegeta", "Bueno", "Saiyajin", 8500));
+        listaSaiyajins.add(new Saiyajin(3, "Gohan", "Bueno", "Saiyajin", 3200));
+        listaSaiyajins.add(new Saiyajin(4, "Trunks", "Bueno", "Saiyajin", 5000));
+        listaSaiyajins.add(new Saiyajin(5, "Bardock", "Malo", "Saiyajin", 7000));
+        listaSaiyajins.add(new Saiyajin(6, "Broly", "Malo", "Saiyajin Legendario", 9500));
     }
 
-    public List<Saiyajin> obtenerSaiyajin() {
-        return ListaSaiyajin;
+    /* Esto devuelve todos los Saiyajins */
+    public List<Saiyajin> obtenerSaiyajins() {
+        return listaSaiyajins;
+    }
+    
+    /*¨Busca un Saiyajin por su ID */
+    public Saiyajin buscarPorId(int id) {
+        for (Saiyajin s : listaSaiyajins) {
+            if (s.getId() == id) return s;
+        }
+        return null; /* Esto es por si no lo encuentra */
     }
 
-    public Saiyajin Buscarporid(int id) {
-        for (Saiyajin saiyajin: ListaSaiyajin){
-            if (saiyajin.getId() == id ){
-                return saiyajin;
-            }
-        }   
-        return null;
-    }
-
-    public Saiyajin guardar(Saiyajin saiyajin){
-        ListaSaiyajin.add(saiyajin);
+    /* Guarda un nuevo Saiyajin en la lista */
+    public Saiyajin guardar(Saiyajin saiyajin) {
+        listaSaiyajins.add(saiyajin);
         return saiyajin;
     }
 
+    /*¨Actualiza un Saiyajin que ya exista */
     public Saiyajin actualizar(Saiyajin saiyajin) {
-        int id = 0;
-        int idPosicion = 0;
-
-        for (int i = 0; i < ListaSaiyajin.size(); i++){
-            if (ListaSaiyajin.get(i).getId() == saiyajin.getId()){
-                id = saiyajin.getId();
-                idPosicion = i; 
+        for (int i = 0; i < listaSaiyajins.size(); i++) { /* Aqui solo modifique "ListaSaiyajin.size" por "listaSaiyajins.size" */
+            if (listaSaiyajins.get(i).getId() == saiyajin.getId()) {
+                listaSaiyajins.set(i, saiyajin);
+                return saiyajin;
             }
-
         }
-            Saiyajin Saiyajin1 = new Saiyajin();
-            Saiyajin1.setId(id);
-            Saiyajin1.setNombre(saiyajin.getNombre());
-
-            ListaSaiyajin.set(idPosicion, Saiyajin1);
-            return Saiyajin1;
-    }
-    public void eliminar(int id){
-
-       Saiyajin saiyan = Buscarporid(id);
-       if (saiyan != null) {
-        ListaSaiyajin.remove(saiyan);
-       } 
-       ListaSaiyajin.removeIf(x -> x.getId() == id);
-    }
-    public int totalSaiyan(){
-        return ListaSaiyajin.size();
+        return null; /* Si no lo encuentra, no lo actualiza */
     }
 
-
+    /* Eliminar Saiyajin por su ID */
+    public void eliminar(int id) {
+        listaSaiyajins.removeIf(s -> s.getId() == id);
+    }
+    
+    /* Esto nos devuelve el total de Saiyajins en la lista */
+    public int totalSaiyajins() {
+        return listaSaiyajins.size();
+    }
 }
