@@ -1,11 +1,11 @@
-package com.Saiyajin.repository;
+package com.Saiyajin.Saiyajin.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.Saiyajin.model.Saiyajin;
+import com.Saiyajin.Saiyajin.model.Saiyajin;
 
 @Repository
 public class SaiyajinRepository {

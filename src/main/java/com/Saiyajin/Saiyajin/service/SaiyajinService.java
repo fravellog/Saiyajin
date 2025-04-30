@@ -1,7 +1,7 @@
-package com.Saiyajin.service;
+package com.Saiyajin.Saiyajin.service;
 
-import com.Saiyajin.model.Saiyajin;
-import com.Saiyajin.repository.SaiyajinRepository;
+import com.Saiyajin.Saiyajin.model.Saiyajin;
+import com.Saiyajin.Saiyajin.repository.SaiyajinRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

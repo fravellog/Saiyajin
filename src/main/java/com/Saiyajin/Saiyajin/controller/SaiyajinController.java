@@ -1,8 +1,7 @@
-package com.Saiyajin.controller;
+package com.Saiyajin.Saiyajin.controller;
 
-/* Importamos las clases (model - service) */
-import com.Saiyajin.model.Saiyajin; /* Clase Saiyajin */
-import com.Saiyajin.service.SaiyajinService; /* Clase Servicio */
+import com.Saiyajin.Saiyajin.model.Saiyajin;
+import com.Saiyajin.Saiyajin.service.SaiyajinService;
 
 /* Importamos Anotaciones necesarias de Spring */
 import org.springframework.beans.factory.annotation.Autowired; /* Para importar dependencias automaticamente  */
