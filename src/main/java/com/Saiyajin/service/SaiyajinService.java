@@ -54,6 +54,7 @@ public class SaiyajinService {
     /* Elimina un Saiyajin por su ID y devuelve un mensaje */
     public String deleteSaiyajin(int id) { /* Aqui no cambie nada, ya que estaba bien" */
         saiyajinRepository.eliminar(id);
-        return "Saiyajin eliminado";
+        /* Mensaje mas especifico con el ID del Saiyajin eliminado */
+        return "El Saiyajin con ID " + id + " ha sido eliminado";
     }
 }
