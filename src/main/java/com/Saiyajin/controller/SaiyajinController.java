@@ -1,7 +1,7 @@
-package com.Saiyajin.Saiyajin.controller;
+package com.Saiyajin.controller;
 
-import com.Saiyajin.Saiyajin.model.Saiyajin;
-import com.Saiyajin.Saiyajin.service.SaiyajinService;
+import com.Saiyajin.model.Saiyajin;
+import com.Saiyajin.service.SaiyajinService;
 
 /* Importamos Anotaciones necesarias de Spring */
 import org.springframework.beans.factory.annotation.Autowired; /* Para importar dependencias automaticamente  */
@@ -31,10 +31,15 @@ public class SaiyajinController {
     public Saiyajin buscarSaiyajin(@PathVariable int id) {
         return saiyajinService.getSaiyajin(id);
     }
-
+    
     @PutMapping("/{id}")
     public Saiyajin actualizarSaiyajin(@PathVariable int id, @RequestBody Saiyajin saiyajin) {
         return saiyajinService.updateSaiyajin(id, saiyajin);
+    }
+
+    @PatchMapping("/{id}")
+    public Saiyajin actualizarParcialSaiyajin(@PathVariable int id, @RequestBody Saiyajin saiyajinParcial) {
+        return saiyajinService.updateSaiyajinParcial(id, saiyajinParcial);
     }
     
     @DeleteMapping("/{id}")

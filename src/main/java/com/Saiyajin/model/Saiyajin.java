@@ -1,4 +1,4 @@
-package com.Saiyajin.Saiyajin.model;
+package com.Saiyajin.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

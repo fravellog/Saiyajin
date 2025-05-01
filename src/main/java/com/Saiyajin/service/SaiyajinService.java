@@ -1,7 +1,7 @@
-package com.Saiyajin.Saiyajin.service;
+package com.Saiyajin.service;
 
-import com.Saiyajin.Saiyajin.model.Saiyajin;
-import com.Saiyajin.Saiyajin.repository.SaiyajinRepository;
+import com.Saiyajin.model.Saiyajin;
+import com.Saiyajin.repository.SaiyajinRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +34,22 @@ public class SaiyajinService {
         saiyajin.setId(id); /* Agrege esto de para que se asegure de que los datos se asocien al ID correcto*/
         return saiyajinRepository.actualizar(saiyajin);
     }    
+
+    /* Actualiza solo los campos enviados del Saiyajin sin modificar los demas */
+    public Saiyajin updateSaiyajinParcial(int id, Saiyajin saiyajinParcial) {
+        Saiyajin actual = saiyajinRepository.buscarPorId(id);
+    
+        if (actual != null) {
+            if (saiyajinParcial.getNombre() != null) actual.setNombre(saiyajinParcial.getNombre());
+            if (saiyajinParcial.getBando() != null) actual.setBando(saiyajinParcial.getBando());
+            if (saiyajinParcial.getRaza() != null) actual.setRaza(saiyajinParcial.getRaza());
+            if (saiyajinParcial.getNivel() != 0) actual.setNivel(saiyajinParcial.getNivel());
+    
+            return saiyajinRepository.actualizar(actual);
+        }
+    
+        return null;
+    }
     
     /* Elimina un Saiyajin por su ID y devuelve un mensaje */
     public String deleteSaiyajin(int id) { /* Aqui no cambie nada, ya que estaba bien" */
